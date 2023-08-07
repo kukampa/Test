@@ -1,0 +1,791 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
+
+body 
+    font-family: 'Noto Sans', sans-serif
+
+* 
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+a 
+    text-decoration: none
+
+a:hover 
+    cursor: pointer
+
+.container 
+    width: 1170px
+    margin: 0 auto
+
+// BURGER 
+#menuToggle 
+  display: none
+  position: relative
+  left: 50px
+
+  z-index: 1
+
+  -webkit-user-select: none
+  user-select: none
+
+
+#menuToggle a 
+  text-decoration: none
+  text-transform: uppercase
+  color: #232323
+
+  transition: color 0.3s ease
+
+
+#menuToggle a:hover 
+  color: tomato
+
+
+#menuToggle input 
+  display: block
+  width: 40px
+  height: 32px
+  position: absolute
+  top: -7px
+  left: -5px
+
+  cursor: pointer
+
+  opacity: 0 
+  z-index: 2
+
+  -webkit-touch-callout: none
+
+
+#menuToggle span 
+  display: block
+  width: 33px
+  height: 4px
+  margin-bottom: 5px
+  position: relative
+
+  background: #cdcdcd
+  border-radius: 3px
+
+  z-index: 1
+
+  transform-origin: 4px 0px
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)
+  transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)
+  transition: opacity 0.55s ease
+
+
+#menuToggle span:first-child 
+  transform-origin: 0% 0%
+
+
+#menuToggle span:nth-last-child(2) 
+  transform-origin: 0% 100%
+
+
+#menuToggle input:checked ~ span 
+  opacity: 1
+  transform: rotate(45deg) translate(-2px, -1px)
+  background: #232323
+
+
+#menuToggle input:checked ~ span:nth-last-child(3) 
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2)
+
+
+#menuToggle input:checked ~ span:nth-last-child(2) 
+  transform: rotate(-45deg) translate(0, -1px)
+
+
+#menu 
+  position: absolute
+  width: 300px
+  margin: -100px 0 0 -50px
+  padding: 50px
+  padding-top: 125px
+
+  background: #ededed
+  list-style-type: none
+  -webkit-font-smoothing: antialiased
+
+  transform-origin: 0% 0%
+  transform: translate(-100%, 0)
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)
+
+
+#menu li 
+  padding: 10px 0
+  font-size: 22px
+
+
+#menuToggle input:checked ~ ul 
+  transform: none
+
+
+.header
+    margin-bottom: 80px
+    &__inner
+        display: flex
+        justify-content: space-evenly
+        align-items: center
+        height: 102px
+    &__logo
+        height: 44px
+        width: 70px
+    &__nav
+        display: flex
+        justify-content: center
+        align-items: center
+    &__nav__li
+        list-style: none
+        text-transform: uppercase
+        color: #333333
+        line-height: 12
+        letter-spacing: 20%
+        font-size: 12px
+        font-weight: 300
+        margin-right: 50px
+    &__nav__li_a
+        position: relative
+        color: #333333
+        &::after
+            content: ""
+            width: 0
+            height: 2px
+            background: #000
+            position: absolute
+            top: -5px
+            right: 0px
+            transition: width .3s ease
+        &::before
+            content: ""
+            width: 0
+            height: 1.5px
+            background: #000
+            position: absolute
+            left: 0
+            bottom: -5px
+            transition: width .3s ease
+        &:hover::before
+            width: 100%
+        &:hover::after
+            width: 100%
+    &__main
+        display: flex
+        justify-content: space-around
+        align-items: center
+        height: 829px
+
+.slider
+    &__text
+        font-size: 64px
+        line-height: 64px
+        font-weight: 300
+        text-transform: uppercase
+        color: grey
+        opacity: .5
+    &__texts
+        font-size: 64px
+        line-height: 64px
+        font-weight: bold
+        text-transform: uppercase
+        color: black
+        margin-bottom: 80px
+    &__buttons
+        background: none
+        border: 0
+        margin-right: 50px
+        opacity: .8
+        &:hover
+            cursor: pointer
+        &:last-child
+            margin-right: 0
+    &__arrows
+        display: flex
+        align-items: center
+        margin-bottom: 80px
+        img
+            width: 24px
+            height: 24px
+    &__count
+        display: flex
+        align-items: center
+        span
+            font-size: 24px
+            line-height: 24px
+            color: #BDBDBD
+    &__line
+        width: 44px
+        height: 2px
+        background: #E0E0E0
+        transform: rotate(-50deg)
+        opacity: .7
+    &__slides
+        position: relative
+        width: 770px
+        height: 829px
+        overflow: hidden
+        a
+            position: absolute
+            left: 0
+            bottom: -65px
+            transition: bottom .4s ease
+        &:hover .slider__btn
+            bottom: 0
+    &__img
+        width: 100%
+        height: 100%
+
+.btn 
+    padding: 20px 40px
+    background: #fff
+    text-transform: uppercase
+    transition: .3s
+    &:hover 
+        color: white
+        background: #a3a3a3
+        transition: .3s
+    
+
+.text
+    font-size: 64px
+    line-height: 64px
+    font-weight: 300
+    color: grey
+    opacity: .5
+
+// ABOUT SECTION
+
+.about
+    height: 435px
+    display: flex
+    justify-content: space-around
+    align-items: center
+    margin-bottom: 100px
+    &__image
+        position: relative
+        width: 560px
+        height: 430px
+        &_1
+            position: absolute
+            width: 270px
+            top: 0px
+            left: 0px
+        &_2
+            position: absolute
+            width: 270px
+            top: 20px
+            right: 0px
+        &_3
+            position: absolute
+            width: 270px
+            bottom: 0px
+            left: 0px
+    &__title
+        width: 400px
+        p
+            font-size: 16px
+            line-height: 25px
+            color: black
+            margin-bottom: 30px
+    &__text
+        margin-bottom: 10px
+
+// TASK SECTION
+
+.task
+    height: 268px
+    margin-bottom: 100px
+    &__subtxt
+        display: flex
+        justify-content: space-around
+        align-items: center
+
+.subtxt
+    color: rgb(68, 68, 68)
+    font-size: 22px
+    line-height: 36px
+    width: 413px
+
+// PROJECTS SECTION
+
+.projects
+    height: 765px
+    overflow: hidden
+    margin-bottom: 100px
+    &__text
+        margin-bottom: 40px
+    &__block
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 20px
+        margin-bottom: 20px
+    &__column
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        grid-gap: 10px
+        justify-items: center
+        align-items: center
+        margin-bottom: 50px
+    &__item
+        position: relative
+        width: 570px
+        height: 255px
+        &:hover .projects__hover
+            display: block
+            opacity: 1
+    &__img
+        width: 100%
+        height: 100%
+    &__hover
+        display: none
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        h2
+            font-size: 64px
+            color: white
+            line-height: 64px
+            text-transform: uppercase
+            font-weight: bold
+            margin-bottom: 8px
+            user-select: none
+    &__wraper
+        width: 100%
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        background: #00000093
+    &__btn
+        background: none
+        padding: 8px 10px
+        font-size: 12px
+        color: white
+        opacity: .7
+        &_block
+            display: flex
+            justify-content: end
+    &__button
+        background: #2b2b2b
+        padding: 25px 45px
+        font-size: 12px
+        letter-spacing: 20%
+        line-height: 12px
+        color: white
+    
+.w 
+    width: 470px
+
+// CONTACT SECTION
+
+.contact 
+    height: 603px
+    margin-bottom: 100px
+    &__text
+        margin-bottom: 50px
+    &__wrapper
+        display: flex
+        justify-content: center
+        align-items: center
+    &__form
+        display: flex
+        flex-direction: column
+    &__textarea
+        resize: none
+    &__check
+        display: flex
+        justify-content: start
+        margin-bottom: 60px
+        p
+            font-size: 14px
+            line-height: auto
+            letter-spacing: 3%
+            font-weight: 400
+    &__btn
+        background: #2C2C2C
+        color: white
+        border: 0
+        &:hover
+            cursor: pointer
+
+.check
+    cursor: pointer
+    position: relative
+    margin: 0 8px 0 0
+    width: 18px
+    height: 18px
+    transform: translate3d(0, 0, 0)
+    &::before
+        content: ""
+        position: absolute
+        top: -15px
+        left: -15px
+        width: 48px
+        height: 48px
+        border-radius: 50%
+        background: rgba(34,50,84,0.03)
+        opacity: 0
+        transition: opacity 0.2s ease
+    svg
+        position: relative
+        z-index: 1
+        fill: none
+        stroke-linecap: round
+        stroke-linejoin: round
+        stroke: #c8ccd4
+        stroke-width: 1.5
+        transform: translate3d(0, 0, 0)
+        transition: all 0.2s ease
+        path
+            stroke-dasharray: 60
+            stroke-dashoffset: 0
+        polyline
+            stroke-dasharray: 22
+            stroke-dashoffset: 66
+    &:hover::before
+        opacity: 1
+    &:hover svg
+        stroke: #4285f4
+
+#cbx:checked + .check svg
+    stroke: #4285f4
+
+#cbx:checked + .check svg path
+    stroke: #4285f4
+
+#cbx:checked + .check svg path
+    stroke-dashoffset: 60
+    transition: all 0.3s linear
+
+#cbx:checked + .check svg polyline
+    stroke-dashoffset: 42
+    transition: all 0.2s linear
+    transition-delay: 0.15s
+
+.input
+    background: #F3F3F3
+    padding: 10px 18px
+    width: 391px
+    border: 0
+    outline: none
+    margin-bottom: 10px
+    &:last-child
+        margin-bottom: 0
+    &::placeholder
+        color: #8D8D8D
+    
+// FOOTER SECTION
+
+.footer
+    background: #2C2C2C
+    padding-top: 60px
+    &__inner
+        height: 397px
+        display: flex
+        justify-content: space-between
+    &__logo
+        width: 145px
+        height: 94px
+    &__nav
+        list-style: none
+        &_li
+            margin-bottom: 8px
+            a
+                font-size: 14px
+                line-height: 24px
+                letter-spacing: 3%
+                font-weight: 300
+                color: white
+    &__social_a
+        img
+            margin-right: 25px
+    &__police
+        display: flex
+        justify-content: center
+        align-items: center
+        border-top: 1px solid #d8d8d834
+        height: 80px
+        a
+            font-size: 12px
+            letter-spacing: 0px
+            line-height: 22px
+            color: #c8c8c885
+
+.title 
+    color: white
+    font-size: 16px
+    font-weight: bold
+    line-height: auto
+    margin-bottom: 15px
+
+@media (max-width: 1045px) 
+    .container
+        width: 1045px
+
+    .footer 
+        width: 1045px
+
+    .contact
+        &__img
+            img
+                width: 650px
+
+
+@media (max-width: 992px) 
+    .container
+        width: 992px
+
+    .slider
+        &__slides
+            width: 645px
+            height: 700px
+
+    .contact
+        &__img
+            img
+                width: 550px
+
+    .footer
+        width: 992px
+
+
+@media (max-width: 751px) 
+    .container
+        width: 751px
+
+    #menuToggle
+        display: block
+
+    .header
+        &__main
+            height: 475px
+        &__inner
+            justify-content: space-between
+        &__nav
+            display: none
+    
+    .slider
+        &__slides
+            width: 405px
+            height: 405px
+        &__arrows
+            img
+                width: 16px
+                height: 16px
+        &__count
+            span
+                font-size: 18px
+        &__texts
+            font-size: 40px
+    .about
+        &__title
+            p
+                font-size: 12px
+        &__image
+            width: 425px
+            height: 295px
+            &_1
+                width: 185px
+            &_2
+                width: 185px
+            &_3
+                width: 185px
+
+    .text   
+        font-size: 40px
+
+    .subtxt
+        font-size: 18px
+
+    .projects
+        height: 630px
+        &__item
+            width: 365px
+            height: 195px
+        &__hover
+            h2
+                font-size: 40px
+    
+    .w 
+        width: 270px
+
+    .contact
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        &__img
+            display: none
+
+    .footer 
+        width: 751px
+
+
+@media (max-width: 552px) 
+    .container  
+        width: 552px
+
+    .about
+        &__image
+            width: 380px
+            height: 220px
+            &_1
+                width: 130px
+            &_2
+                width: 130px
+            &_3
+                width: 130px
+        &__title
+            p
+                font-size: 10px
+                line-height: unset
+
+    .slider
+        &__texts
+            font-size: 35px
+            line-height: unset
+    
+    .task
+        height: 180px
+
+    .text
+        font-size: 35px
+        line-height: unset
+    
+    .subtxt
+        font-size: 14px
+        line-height: unset
+
+    .footer 
+        width: 552px
+        &__inner
+            padding-left: 40px
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            grid-gap: 10px
+
+    .projects
+        height: 470px
+        &__img 
+        &__hover
+            h2
+                font-size: 20px
+                line-height: unset
+        &__item
+            width: 265px
+            height: 135px
+
+    .btn 
+        padding: 7px 10px
+        font-size: 9px
+
+    .w
+        width: 175px
+
+@media (max-width: 442px) 
+    .container  
+        width: 442px
+
+    .header
+        &__main
+            height: 310px
+
+    .about
+        height: 300px
+        &__image
+            width: 450px
+            height: 190px
+            &_1
+                width: 115px
+            &_2
+                width: 115px
+            &_3
+                width: 115px
+
+    .subtxt
+        font-size: 13px
+
+    .slider
+        &__slides
+            width: 250px
+            height: 310px
+        &__texts
+            font-size: 30px
+
+    .projects
+        &__item
+            width: 210px
+
+    .w
+        width: 180px
+
+    .text
+        font-size: 30px
+
+    .footer
+        width: 442px
+        &__nav
+            &_li
+                font-size: 10px
+                margin-bottom: 5px
+
+
+@media (max-width: 372px) 
+    .container
+        width: 372px
+
+    .input
+        padding: 10px 3px
+        width: 350px
+
+    .projects
+        margin-bottom: 50px
+        &__item
+            width: 176px
+            height: 105px
+        &__hover
+            h2
+                font-size: 15px
+
+    .contact
+        &__check
+            p
+                font-size: 10px
+
+    .w
+        width: 120px
+
+    .subtxt
+        font-size: 10px
+
+    #menu
+        width: 230px
+        li
+            font-size: 15px
+
+    .footer
+        width: 372px
+        &__logo
+            width: 100px
+        &__social
+            &_a
+                img
+                    margin-right: 7px
+        &__nav
+            &_li
+                a
+                    font-size: 14px
+
+    .title
+        font-size: 14px
+    
+
+
